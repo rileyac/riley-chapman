@@ -1,16 +1,19 @@
-/* Color Palette */
+/* ================================
+   Color Palette
+================================ */
 :root {
-  --dark1: #2e2d37;
-  --dark2: #42424c;
-  --brown: #6b5454;
-  --light: #d6dddd;
-  --linkedin: #0A66C2;
-  --linkedin-hover: #004182;
+  --dark1: #2e2d37; /* primary dark */
+  --dark2: #42424c; /* secondary dark */
+  --brown: #6b5454; /* accent */
+  --light: #d6dddd; /* light background */
 }
 
+/* ================================
+   Global Styles
+================================ */
 body {
   margin: 0;
-  font-family: 'Merriweather', serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background: linear-gradient(135deg, var(--dark1), var(--brown), var(--light));
   background-attachment: fixed;
   color: var(--dark1);
@@ -22,28 +25,99 @@ body {
   transition: background 0.5s ease;
 }
 
-/* Navigation Bar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  transform: translateX(-50%);
-  background-color: var(--dark1);
-  padding: 1rem 2rem;
+/* ================================
+   Container (shared)
+================================ */
+.container {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  width: 90%;
+  padding: 2rem;
+  margin: 2rem auto;
+  text-align: left;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 100;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.nav-left {
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  color: var(--dark1);
+  border-bottom: 3px solid var(--brown);
+  padding-bottom: 0.3rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   Home Page Layout
+================================ */
+.container.home {
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid var(--light);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom: 1rem;
+}
+
+/* Social Icons below profile */
+.social-icons {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* Right Column: About + Navigation */
+.bio {
+  max-width: 600px;
+}
+
+.bio h1 {
+  margin-bottom: 1rem;
+  color: var(--dark1);
+  border-bottom: 3px solid var(--brown);
+  padding-bottom: 0.3rem;
+  display: inline-block;
+}
+
+.bio p {
+  color: var(--dark2);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .nav-btn {
@@ -64,218 +138,133 @@ body {
   background: linear-gradient(135deg, var(--dark1), var(--brown));
 }
 
-.nav-btn.linkedin {
-  background: linear-gradient(135deg, var(--linkedin), var(--linkedin-hover));
+/* GitHub icon in projects */
+.project-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 
-.nav-btn.linkedin:hover {
-  background: linear-gradient(135deg, var(--linkedin-hover), var(--linkedin));
-}
-
-/* Shared Container Styles */
-.container {
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  max-width: 800px;
-  width: 90%;
-  padding: 2rem;
-  text-align: center;
-  margin: 2rem;
-}
-
-/* Typography */
-h1 {
-  margin-bottom: 0.5rem;
-  color: var(--dark1);
-}
-
-p {
-  margin-bottom: 1.5rem;
-  color: var(--dark2);
-  line-height: 1.6;
-}
-
-/* Home Page Layout */
-.container.home {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: flex-start;
-  max-width: 1000px;
-  padding: 2rem;
-  margin: 2rem;
-  transition: box-shadow 0.3s ease;
-}
-
-.profile-photo {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid var(--light);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25),
-              0 0 20px rgba(107, 84, 84, 0.3);
-  transition: box-shadow 0.3s ease;
-}
-
-.bio {
-  max-width: 650px;
-  text-align: left;
-}
-
-.bio h1 {
-  margin-bottom: 1rem;
-  color: var(--dark1);
-  border-bottom: 3px solid var(--brown);
-  padding-bottom: 0.3rem;
-  display: inline-block;
-}
-
-.bio p {
-  color: var(--dark2);
-  line-height: 1.7;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Call-to-action buttons */
-.cta-btn {
-  background: linear-gradient(45deg, var(--brown), var(--dark1));
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
-}
-
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-.cta-btn.small-btn {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  margin: 0.5rem 0 1rem;
-}
-
-/* Resume Page */
-.container.resume {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.section-title {
-  margin-bottom: 0.5rem;
-  color: var(--dark1);
-  border-bottom: 3px solid var(--brown);
-  padding-bottom: 0.3rem;
-  display: inline-block;
-}
-
-iframe {
-  width: 100%;
-  height: 80vh;
-  border: none;
-  border-radius: 12px;
-  margin: 1rem 0;
-}
-
-/* Projects Page */
+/* ================================
+   Projects Page
+================================ */
+/* Project Cards */
 .project-item {
+  background: linear-gradient(40deg, #ffffff, #e4dede);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 1.5rem;
   margin-bottom: 2rem;
-  text-align: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.project-item:last-child {
-  border-bottom: none;
-}
-
-.project-item h2 {
-  font-size: 1.8rem;              
-  font-weight: 900;             
-  text-transform: uppercase;       
-  background: linear-gradient(90deg, var(--brown), var(--dark1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
-  margin: 0 auto 1rem;
-  max-width: 550px;
-  position: relative;
-}
-
-.project-item p {
-  margin-bottom: 0.8rem;
-  color: var(--dark2);
-  line-height: 1.6;
-  font-size: 1.05rem;
-}
-
-/* PDF layout */
-.pdf-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-  justify-content: space-between;
-}
-
-.pdf-block {
-  flex: 1 1 48%;
-  min-width: 300px;
-  text-align: center;
-}
-
-.pdf-preview {
-  width: 100%;
-  height: 400px;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 12px;
-  margin: 0.5rem 0;
-}
-
-/* Project list style */
-.project-list {
   text-align: left;
-  margin: 1.5rem auto;
-  max-width: 600px;
-  padding-left: 1.2rem;
 }
 
-.project-list li {
-  margin-bottom: 1rem;
+/* Project Titles */
+.project-item h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: var(--dark1);
 }
 
-/* Responsive Design */
+.project-item h2 a {
+  text-decoration: none;
+  color: var(--dark1);
+}
+
+.project-item h2 a:hover {
+  color: var(--brown);
+}
+
+/* GitHub Logo */
+.project-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Project Description */
+.project-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark2);
+}
+
+/* Class list styling */
+.class-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+/* Table styling */
+.classes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.classes-table th {
+  padding: 10px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  background-color: #f9f9f9;
+  color: #6b5454;
+}
+
+.classes-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.classes-table thead {
+  background: var(--green);
+  color: white;
+}
+
+.classes-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* GPA text */
+.gpa {
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--dark1);
+  text-align: center;
+}
+
+/* Back button centered */
+.back-home {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ================================
+   Responsive Design
+================================ */
 @media (max-width: 900px) {
   .container.home {
     flex-direction: column;
     align-items: center;
-  }
-  
-  .bio {
     text-align: center;
   }
-  
-  .pdf-row {
-    flex-direction: column;
-    align-items: center;
+
+  .bio {
+    max-width: 100%;
   }
 
-  .pdf-preview {
-    height: 350px;
+  .social-icons {
+    justify-content: center;
   }
 
-  .pdf-block {
-    width: 100%;
+  .nav-links {
+    justify-content: center;
   }
 }
