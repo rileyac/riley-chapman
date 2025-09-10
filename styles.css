@@ -151,7 +151,7 @@ body {
 ================================ */
 /* Project Cards */
 .project-item {
-  background: linear-gradient(40deg, #ffffff, #e4dede);
+  background: linear-gradient(40deg, #ffffff, #dad0d0);
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   padding: 1.5rem;
@@ -192,6 +192,23 @@ body {
   color: var(--dark2);
 }
 
+.project-header {
+  display: flex;
+  justify-content: space-between; /* left-right alignment */
+  align-items: center; /* vertically center the date */
+}
+
+.project-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.project-header .date {
+  color: var(--dark2);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 /* Class list styling */
 .class-list {
   list-style-type: disc;
@@ -224,7 +241,6 @@ body {
 }
 
 .classes-table thead {
-  background: var(--green);
   color: white;
 }
 
@@ -267,4 +283,79 @@ body {
   .nav-links {
     justify-content: center;
   }
+}
+
+
+/* ================================
+   Header Navigation Bar
+================================ */
+.site-header {
+  width: 100%;
+  background: linear-gradient(135deg, var(--dark1), var(--brown));
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-bar {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--brown), var(--dark1));
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-bar a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, var(--dark1), var(--brown));
+}
+
+.nav-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--brown), var(--dark1));
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, var(--dark1), var(--brown));
+}
+
+.project-item,
+.timeline-item {
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect to make cards pop */
+.project-item:hover,
+.timeline-item:hover {
+  transform: translateY(-5px) scale(1.02); /* slight lift and scale */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* stronger shadow */
 }
